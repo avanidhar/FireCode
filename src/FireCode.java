@@ -781,4 +781,60 @@ public class FireCode {
 
 	    return true;
 	}
+	
+	public static boolean isAnagram(String input1, String input2) {
+	    if(input1 == null && input2 == null) return true;
+	    
+	    if(input1 == null || input2 == null) return false;
+	    
+	    if(input1.equals(input2)) return true;
+	    
+	    int[] counts = new int[26];
+	    for(Character c : input1.toCharArray())
+	    {
+	    	counts[c-'a']++;
+	    }
+	    
+	    for(Character c : input2.toCharArray())
+	    {
+	    	counts[c-'a']--;
+	    }
+	    
+	    for(int i =0;i<26;i++){
+	    	if(counts[i] != 0) return false;
+	    }
+	    
+	    return true;
+	}
+	
+	public static ArrayList<Integer> topKPairSums(int[] input, int k)
+	{
+		ArrayList<Integer> result = new ArrayList<Integer>();
+		if(input.length == 0) return result;
+		
+		PriorityQueue<Integer> pq = new PriorityQueue<Integer>(k);
+		int length = input.length;
+		for(int i = 0; i< length; i++)
+		{
+			for(int j = i+1; j<length;j++)
+			{
+				int sum = input[i] + input[j];
+				if(pq.size() < k){
+					pq.offer(sum);
+				}else if(pq.size() == k){
+					if(sum > pq.peek()){
+						pq.poll();
+						pq.offer(sum);
+					}
+				}
+			}
+		}
+		
+		while(!pq.isEmpty()){
+			result.add(pq.poll());
+		}
+		
+		return result;
+	}
+	
 }

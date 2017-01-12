@@ -46,12 +46,12 @@ public class Program {
 		
 		// ArrayList<String> result = FireCode.generateIPAddrs("1234567");
 		
-		ArrayList<String> result = FireCode.getPermutations("cat");
+		// ArrayList<String> result = FireCode.getPermutations("cat");
 		// char[][] board = {{'a', 'o', 'l'},{'d', 'e', 'l'},{'g', 'h', 'i'}};
 		// boolean result = FireCode.boggleSearch(board, "helo");
 		// boolean result = FireCode.groupSum(arr, 20);
 		
-		// int[] inputArray = {1, 2, 3, -6, 5};
+		int[] inputArray = {1, 2, 3, 4, 5};
 		// int[] result = FireCode.maxContSequence(inputArray);
 		
 		// char[][] someArr = {{'1', '1', '0', '1'},{'1', '1', '0', '1'},{'1', '1', '1', '1'}};
@@ -61,6 +61,7 @@ public class Program {
 		
 		// long result = FireCode.reverse(3);
 		
+		ArrayList<Integer> result = FireCode.topKPairSums(inputArray, 5);
 		System.out.println(result);
 		//HeapPractice.CalculateMedian();
 	}
